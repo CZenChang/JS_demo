@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filereader</title>
+</head>
+<body>
+<input type="file" id="file" >
+
+<br/>
+<button type="button" onclick="inner()">顯示</button>
+<textarea id="ta" style="width: 80%;height: 300px">
+
+</textarea>
+
+<script>
+    let str;
+    let ta=document.querySelector("#ta");
+    let file = document.querySelector("#file");
+
+    var reader = new FileReader();
+
+    function printFile(file) {
+        reader.readAsText(file.files[0],"utf-8");
+        reader.onload = function(evt) {
+            console.log(evt.target.result);
+            str=evt.target.result;
+        };
+    }
+
+    function inner() {
+        ta.value=str;
+    }
+
+    file.onchange=function (e) {
+        printFile(e.target)
+    }
+
+</script>
+</body>
+</html>
