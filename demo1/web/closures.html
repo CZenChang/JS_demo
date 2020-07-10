@@ -2,9 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>閉包</title>
 </head>
 <body>
+<script>
+    //用function (){} 限制var 作用域的作法
+
+
+    var setup = function(){
+        var count = 0;
+        return function(){
+            count += 1;
+            console.log(count);
+        };
+    }
+    var next = setup();//執行外部function 產生一個參考域
+
+    //next() 引用的count 屬於同一次閉包的查找範疇
+    next();// line 1
+    next();// line 2
+
+    var n2 = setup();//屬於另一個閉包的參考域
+        n2();// 1
+
+
+    //迴圈VAR + 閉包示範
+    //使用IIFE ()()
+    // 每次回圈 function(j) 都會執行一次產生一個參考域帶入當次的i, 所以setTimeout在執行時j 都等於當次帶入的i , 而不會取到全域的i
+    for (var i = 1; i <= 5; i++) {
+        (function(j) {
+            setTimeout(function timer() {
+                console.log(j);
+            }, j * 1000);
+        })(i);
+    }
+
+    //未使用閉包 則一直印出最後 i = 6 (全域的 i)
+    for (var i = 1; i <= 5; i++) {
+
+            setTimeout(function timer() {
+                console.log(j);
+            }, j * 1000);
+
+    }
+</script>
+
 
 </body>
 </html>

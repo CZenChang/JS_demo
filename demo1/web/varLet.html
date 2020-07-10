@@ -7,13 +7,25 @@
 <body>
 <script>
 
-    console.log(a);
-    var a = 1;
+
+
+
+        for (let i = 1; i < 10; i++) {
+
+            setTimeout(function () {
+                console.log('let執行第' + i + '次');
+            }, i*1000);
+        }
+
+        //var 只有function限制作用域 , for 迴圈宣告var, 等於在全域宣告var
+        //所以在console.log執行時迴圈已跑完, i 已變成10
+
+        //在es6 以前, 解決這樣問題的方式就只能用function限制作用域 , 叫做閉包 -> closures.html
 
         for (var i = 1; i < 10; i++) {
 
             setTimeout(function () {
-                console.log('這執行第' + i + '次');
+                console.log('var執行第' + i + '次');
             }, i*1000);
         }
 

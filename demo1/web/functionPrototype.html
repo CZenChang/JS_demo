@@ -8,12 +8,12 @@
 <script>
 // 結論 : prototype 是 function 特有的屬性,
 // function 是包在一個 object, f.prototype = 包function的 object = 母物件
-// new function(); 的物件繼承function.prototype 物件
+// new function() 的物件繼承function.prototype 物件
 
 
     function fun() {
         // let a = 'a';
-        this.a='a'; //作為建構式時, this代表當下物件
+        this.a='a'; //作為建構式時, this代表 new 後的物件
         this.thisFun=function () {
             return 1+1;
         }
