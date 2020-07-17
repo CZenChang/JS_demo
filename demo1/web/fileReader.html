@@ -23,8 +23,16 @@
     function printFile(file) {
         reader.readAsText(file.files[0],"utf-8");
         reader.onload = function(evt) {
-            console.log(evt.target.result);
+            console.log(evt.target.result);//event.target === reader 物件本身
             str=evt.target.result;
+
+            //檢視檔案文字有無符合規定
+            let reg = new RegExp(/[^a-f0-9\r\n]/i);
+            if(str.match(reg)){
+                let index=str.search(reg);
+                let subStr=str.substr(index-1,3);
+                alert(subStr+"之中含有非法字元");
+            }
         };
     }
 
