@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--注意jquery要在最前面讀取-->
+    <script charset="UTF-8" type="text/javascript" src="js/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"><!--boostrap-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"><!--datatable-->
+    <script charset="UTF-8" type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script><!--datatable-->
+    <meta charset="UTF-8">
+    <title>datatable</title>
+</head>
+<body>
+<div style="width: 50%;max-width: 900px;">
+<table id="table" class="display order-column" >
+    <thead style="background-color: lightblue"><tr>
+        <th>標題</th> <th>人名</th> <th>未知</th> <th>數字</th>
+    </tr></thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>31</td>
+        <td>21</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>32</td>
+        <td>22</td>
+        <td>22</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>32</td>
+        <td>22</td>
+        <td>22</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>32</td>
+        <td>22</td>
+        <td>22</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>32</td>
+        <td>22</td>
+        <td>22</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>32</td>
+        <td>22</td>
+        <td>22</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>32</td>
+        <td>22</td>
+        <td>22</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>32</td>
+        <td>22</td>
+        <td>22</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>32</td>
+        <td>22</td>
+        <td>22</td>
+    </tr>
+    </tbody>
+    <tfoot></tfoot>
+</table>
+</div>
+
+
+</body>
+<script>
+    $(document).ready( function () {
+        $('#table').DataTable({
+            "columns":[
+                {"searchable":false},
+                {"orderable":false},
+                {},
+                {}],
+            searching: true,
+            "ordering":true,//是否開啟搜尋功能
+            "order": [[ 0, 'desc' ]],//預設排序方式, column 0 降冪
+            paging: true,//翻頁按鈕
+            // scrollY:        200,//滾動條
+            "pagingType": "full_numbers",//換頁按鈕樣式
+            "lengthMenu":[5,10,50],
+
+
+            "language":{
+                "decimal":        "",
+                // "emptyTable":     "沒有任何東西",
+                "info":           "第 _START_ 到 _END_ 總共 _TOTAL_ ",
+                "infoEmpty":      "",
+                "infoFiltered":   "(從 _MAX_ 筆篩選)",
+                "infoPostFix":    "",
+                "thousands":      ",",
+                "lengthMenu":     "顯示 _MENU_ 筆資料",
+                "loadingRecords": "Loading...",
+                "processing":     "Processing...",
+                "search":         "搜尋:",
+                "zeroRecords":    "沒有東西",
+                "paginate": {
+                    "first":      "First",
+                    "last":       "Last",
+                    "next":       "Next",
+                    "previous":   "Previous"
+                }
+            }
+        });
+    } );
+</script>
+</html>
